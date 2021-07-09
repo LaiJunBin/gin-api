@@ -2,6 +2,7 @@ package api
 
 import (
 	"github.com/LaiJunBin/gin-api/internal/requests"
+	"github.com/LaiJunBin/gin-api/internal/service"
 	"github.com/LaiJunBin/gin-api/pkg/app"
 	"github.com/LaiJunBin/gin-api/pkg/errors"
 	"github.com/gin-gonic/gin"
@@ -24,7 +25,15 @@ func (u User) Register(c *gin.Context) {
 		return
 	}
 
-	response.MakeResponse(params)
+	s := service.New(c.Request.Context())
+	user, userErr := s.CreateUser(&params)
+
+	if userErr != nil {
+		response.MakeErrorResponse(errors.CreateUserFail)
+		return
+	}
+
+	response.MakeResponse(user.ID)
 }
 
 func (u User) Login(c *gin.Context) {

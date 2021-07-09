@@ -1,0 +1,13 @@
+Server:
+  RunMode: debug
+  HttpPort: 8080
+  ReadTimeout: 60
+  WriteTimeout: 60
+Database:
+  DBType: mysql
+  UserName: root
+  Password:
+  Host: 127.0.0.1:3306
+  DBName: gin_api_db
+  Charset: utf8
+  ParseTime: True
