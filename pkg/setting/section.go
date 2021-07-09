@@ -19,6 +19,11 @@ type DatabaseSetting struct {
 	ParseTime    bool
 }
 
+type JWTSetting struct {
+	Secret string
+	Expire time.Duration
+}
+
 func (setting *Setting) ReadSection(k string, v interface{}) error {
 	return setting.viper.UnmarshalKey(k, v)
 }

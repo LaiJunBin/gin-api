@@ -5,4 +5,5 @@ import "github.com/LaiJunBin/gin-api/pkg/setting"
 var (
 	ServerSetting   *setting.ServerSetting
 	DatabaseSetting *setting.DatabaseSetting
+	JWTSetting 		*setting.JWTSetting
 )

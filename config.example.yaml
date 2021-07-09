@@ -11,3 +11,6 @@ Database:
   DBName: gin_api_db
   Charset: utf8
   ParseTime: True
+JWT:
+  Secret: SecretKey
+  Expire: 3600

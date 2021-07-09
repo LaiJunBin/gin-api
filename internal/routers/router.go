@@ -13,6 +13,12 @@ func NewRouter() *gin.Engine {
 	user := api.NewUser()
 	router.POST("/register", user.Register)
 	router.POST("/login", user.Login)
+	router.GET("/users/:id", user.Get)
+
+	authRouter := router.Group("/")
+	authRouter.Use(middleware.JWT())
+	authRouter.PATCH("/users/:id", user.Update)
+	authRouter.DELETE("/users/:id", user.Delete)
 
 	return router
 }
